@@ -49,7 +49,7 @@ class myMethod {
 
         double measurement(DerivedClass dc) {
             _bc = dc; // ここで親クラス BaseClass に 子クラス DerivedClass が入っていて欲しい
-            return _bc.weighted_addition(_bc.get_bias()) - (_mean + _bc.get_bias()); 
+            return _bc.weighted_addition(_bc.bias()) - (_mean + _bc.bias()); 
             // _bc が DerivedClass として機能して欲しいが、もちろんno member named 'get_bias()'... みたいなエラーが出てコンパイルエラー
         }
 
