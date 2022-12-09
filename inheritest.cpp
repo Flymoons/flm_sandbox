@@ -49,8 +49,11 @@ class myMethod {
 
         double measurement(DerivedClass dc) {
             _bc = dc; // ここで親クラス BaseClass に 子クラス DerivedClass が入っていて欲しい
-            return _bc.weighted_addition(_bc.bias()) - (_mean + _bc.bias()); 
-            // _bc が DerivedClass として機能して欲しいが、もちろんno member named 'get_bias()'... みたいなエラーが出てコンパイルエラー
+            double bb = dc.bias();
+
+            return _bc.weighted_addition(bb) - (_mean + bb); 
+            // ここで _bc は DerivedClassとして機能して、DerivedClass でオーバーロードされた weighted_addition を呼び出してほしい
+            // が、ここでは _bc は BaseClass と見做されてしまうので、 too many arguments みたいなエラーが出てコンパイルエラー
         }
 
 };
